@@ -429,9 +429,9 @@ Manages Apache Airflow environments on Google Cloud Platform.
 
 #### ![Logo](https://www.google.com/images/icons/product/compute_engine-16.png) Compute Engine API - `compute.v1`
 
-Creates and runs virtual machines on Google Cloud Platform.
+Creates and runs virtual machines on Google Cloud Platform. 
 
-- [Documentation](https://developers.google.com/compute/docs/reference/latest/)
+- [Documentation](https://cloud.google.com/compute/)
 - [API details](https://pub.dev/documentation/googleapis/4.0.0-dev/compute.v1/compute.v1-library.html)
 
 #### Kubernetes Engine API - `container.v1`

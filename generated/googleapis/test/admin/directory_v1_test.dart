@@ -10000,7 +10000,6 @@ void main() {
       var res = api.DirectoryApi(mock).orgunits;
       var arg_customerId = 'foo';
       var arg_orgUnitPath = 'foo';
-      var arg_allowPlus = true;
       var arg_$fields = 'foo';
       mock.register(unittest.expectAsync2((http.BaseRequest req, json) {
         var path = (req.url).path;
@@ -10048,10 +10047,6 @@ void main() {
             );
           }
         }
-        unittest.expect(
-          queryMap["allowPlus"]!.first,
-          unittest.equals("$arg_allowPlus"),
-        );
         unittest.expect(
           queryMap["fields"]!.first,
           unittest.equals(arg_$fields),
@@ -10063,8 +10058,7 @@ void main() {
         var resp = '';
         return async.Future.value(stringResponse(200, h, resp));
       }), true);
-      await res.delete(arg_customerId, arg_orgUnitPath,
-          allowPlus: arg_allowPlus, $fields: arg_$fields);
+      await res.delete(arg_customerId, arg_orgUnitPath, $fields: arg_$fields);
     });
 
     unittest.test('method--get', () async {
@@ -10072,7 +10066,6 @@ void main() {
       var res = api.DirectoryApi(mock).orgunits;
       var arg_customerId = 'foo';
       var arg_orgUnitPath = 'foo';
-      var arg_allowPlus = true;
       var arg_$fields = 'foo';
       mock.register(unittest.expectAsync2((http.BaseRequest req, json) {
         var path = (req.url).path;
@@ -10121,10 +10114,6 @@ void main() {
           }
         }
         unittest.expect(
-          queryMap["allowPlus"]!.first,
-          unittest.equals("$arg_allowPlus"),
-        );
-        unittest.expect(
           queryMap["fields"]!.first,
           unittest.equals(arg_$fields),
         );
@@ -10135,8 +10124,8 @@ void main() {
         var resp = convert.json.encode(buildOrgUnit());
         return async.Future.value(stringResponse(200, h, resp));
       }), true);
-      final response = await res.get(arg_customerId, arg_orgUnitPath,
-          allowPlus: arg_allowPlus, $fields: arg_$fields);
+      final response =
+          await res.get(arg_customerId, arg_orgUnitPath, $fields: arg_$fields);
       checkOrgUnit(response as api.OrgUnit);
     });
 
@@ -10293,7 +10282,6 @@ void main() {
       var arg_request = buildOrgUnit();
       var arg_customerId = 'foo';
       var arg_orgUnitPath = 'foo';
-      var arg_allowPlus = true;
       var arg_$fields = 'foo';
       mock.register(unittest.expectAsync2((http.BaseRequest req, json) {
         var obj =
@@ -10345,10 +10333,6 @@ void main() {
             );
           }
         }
-        unittest.expect(
-          queryMap["allowPlus"]!.first,
-          unittest.equals("$arg_allowPlus"),
-        );
         unittest.expect(
           queryMap["fields"]!.first,
           unittest.equals(arg_$fields),
@@ -10362,7 +10346,7 @@ void main() {
       }), true);
       final response = await res.patch(
           arg_request, arg_customerId, arg_orgUnitPath,
-          allowPlus: arg_allowPlus, $fields: arg_$fields);
+          $fields: arg_$fields);
       checkOrgUnit(response as api.OrgUnit);
     });
 
@@ -10372,7 +10356,6 @@ void main() {
       var arg_request = buildOrgUnit();
       var arg_customerId = 'foo';
       var arg_orgUnitPath = 'foo';
-      var arg_allowPlus = true;
       var arg_$fields = 'foo';
       mock.register(unittest.expectAsync2((http.BaseRequest req, json) {
         var obj =
@@ -10425,10 +10408,6 @@ void main() {
           }
         }
         unittest.expect(
-          queryMap["allowPlus"]!.first,
-          unittest.equals("$arg_allowPlus"),
-        );
-        unittest.expect(
           queryMap["fields"]!.first,
           unittest.equals(arg_$fields),
         );
@@ -10441,7 +10420,7 @@ void main() {
       }), true);
       final response = await res.update(
           arg_request, arg_customerId, arg_orgUnitPath,
-          allowPlus: arg_allowPlus, $fields: arg_$fields);
+          $fields: arg_$fields);
       checkOrgUnit(response as api.OrgUnit);
     });
   });

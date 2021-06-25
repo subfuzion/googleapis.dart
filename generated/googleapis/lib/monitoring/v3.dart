@@ -8526,15 +8526,6 @@ class Service {
   /// Configuration for how to query telemetry on a Service.
   Telemetry? telemetry;
 
-  /// Labels which have been used to annotate the service.
-  ///
-  /// Label keys must start with a letter. Label keys and values may contain
-  /// lowercase letters, numbers, underscores, and dashes. Label keys and values
-  /// have a maximum length of 63 characters, and must be less than 128 bytes in
-  /// size. Up to 64 label entries may be stored. For labels which do not have a
-  /// semantic value, the empty string may be supplied for the label value.
-  core.Map<core.String, core.String>? userLabels;
-
   Service();
 
   Service.fromJson(core.Map _json) {
@@ -8573,15 +8564,6 @@ class Service {
       telemetry = Telemetry.fromJson(
           _json['telemetry'] as core.Map<core.String, core.dynamic>);
     }
-    if (_json.containsKey('userLabels')) {
-      userLabels =
-          (_json['userLabels'] as core.Map<core.String, core.dynamic>).map(
-        (key, item) => core.MapEntry(
-          key,
-          item as core.String,
-        ),
-      );
-    }
   }
 
   core.Map<core.String, core.dynamic> toJson() => {
@@ -8595,7 +8577,6 @@ class Service {
         if (meshIstio != null) 'meshIstio': meshIstio!.toJson(),
         if (name != null) 'name': name!,
         if (telemetry != null) 'telemetry': telemetry!.toJson(),
-        if (userLabels != null) 'userLabels': userLabels!,
       };
 }
 
