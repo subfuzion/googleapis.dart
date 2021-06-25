@@ -1,0 +1,88 @@
+@startuml
+set namespaceSeparator ::
+
+'------
+'Client
+'------
+interface "http::src::client.dart::Client" {}
+
+'----------
+'BaseClient
+'----------
+abstract class "http::src::base_client.dart::BaseClient" {}
+"http::src::client.dart::Client" <|.. "http::src::base_client.dart::BaseClient"
+
+'----------------
+'DelegatingClient
+'----------------
+abstract class "googleapis_auth::src::http_client_base.dart::DelegatingClient" {
+  +Client baseClient
+  +bool closeUnderlyingClient
+}
+"http::src::base_client.dart::BaseClient" <|-- "googleapis_auth::src::http_client_base.dart::DelegatingClient"
+
+'----------------
+'RefCountedClient
+'----------------
+class "googleapis_auth::src::http_client_base.dart::RefCountedClient" {}
+"googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::http_client_base.dart::RefCountedClient"
+note bottom of "googleapis_auth::src::http_client_base.dart::RefCountedClient" : used by Client nonClosingClient(Client baseClient) \n-used by Future<AutoRefreshingAuthClient> clientViaApplicationDefaultCredentials\n-used by Client clientViaApiKey\n-used by Future<AutoRefreshingAuthClient> clientFromFlow
+
+'--------------------
+'DelegatingClientImpl
+'--------------------
+class "googleapis_auth::src::http_client_base_test.dart::DelegatingClientImpl" {}
+"googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::http_client_base_test.dart::DelegatingClientImpl"
+
+'---------------------------
+'AutoRefreshDelegatingClient
+'---------------------------
+abstract class "googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient" {}
+"googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient"
+"googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient" <|.. "googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient"
+
+'--------------------
+'AutoRefreshingClient
+'--------------------
+class "googleapis_auth::src::auth_http_utils.dart::AutoRefreshingClient" {
+  +Client authClient
+}
+"googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient" <|-- "googleapis_auth::src::auth_http_utils.dart::AutoRefreshingClient"
+
+'-----------
+'_FlowClient
+'-----------
+class "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient" {
+  -Client _authClient
+}
+"googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient" <|-- "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient"
+note top of "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient" : Future<AutoRefreshingAuthClient> clientFromFlow
+
+'----------
+'AuthClient
+'----------
+abstract class "googleapis_auth::src::auth_client.dart::AuthClient" {}
+"http::src::client.dart::Client" <|.. "googleapis_auth::src::auth_client.dart::AuthClient"
+
+'------------------------
+'AutoRefreshingAuthClient
+'------------------------
+abstract class "googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient" {}
+"googleapis_auth::src::auth_client.dart::AuthClient" <|.. "googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient"
+
+'-------------------
+'AuthenticatedClient
+'-------------------
+class "googleapis_auth::src::auth_http_utils.dart::AuthenticatedClient" {}
+"googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::auth_http_utils.dart::AuthenticatedClient"
+"googleapis_auth::src::auth_client.dart::AuthClient" <|.. "googleapis_auth::src::auth_http_utils.dart::AuthenticatedClient"
+
+'------------
+'ApiKeyClient
+'------------
+class "googleapis_auth::src::auth_http_utils.dart::ApiKeyClient" {}
+"googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::auth_http_utils.dart::ApiKeyClient"
+
+
+
+@enduml
