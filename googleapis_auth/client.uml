@@ -26,7 +26,10 @@ abstract class "googleapis_auth::src::http_client_base.dart::DelegatingClient" {
 '----------------
 class "googleapis_auth::src::http_client_base.dart::RefCountedClient" {}
 "googleapis_auth::src::http_client_base.dart::DelegatingClient" <|-- "googleapis_auth::src::http_client_base.dart::RefCountedClient"
-note bottom of "googleapis_auth::src::http_client_base.dart::RefCountedClient" : used by Client nonClosingClient(Client baseClient) \n-used by Future<AutoRefreshingAuthClient> clientViaApplicationDefaultCredentials\n-used by Client clientViaApiKey\n-used by Future<AutoRefreshingAuthClient> clientFromFlow
+note bottom of "googleapis_auth::src::http_client_base.dart::RefCountedClient" : used by Client nonClosingClient(Client baseClient)\n \
+  -used by Future<AutoRefreshingAuthClient> clientViaApplicationDefaultCredentials\n \
+  -used by Client clientViaApiKey\n \
+  -used by Future<AutoRefreshingAuthClient> clientFromFlow
 
 '--------------------
 'DelegatingClientImpl
@@ -56,7 +59,7 @@ class "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient" {
   -Client _authClient
 }
 "googleapis_auth::src::auth_http_utils.dart::AutoRefreshDelegatingClient" <|-- "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient"
-note top of "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient" : Future<AutoRefreshingAuthClient> clientFromFlow
+note bottom of "googleapis_auth::src::oauth2_flows::base_flow.dart::_FlowClient" : returned by Future<AutoRefreshingAuthClient> clientFromFlow
 
 '----------
 'AuthClient
@@ -69,6 +72,10 @@ abstract class "googleapis_auth::src::auth_client.dart::AuthClient" {}
 '------------------------
 abstract class "googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient" {}
 "googleapis_auth::src::auth_client.dart::AuthClient" <|.. "googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient"
+note bottom of "googleapis_auth::src::auth_client.dart::AutoRefreshingAuthClient" : returned by Future<AutoRefreshingAuthClient> clientViaApplicationDefaultCredentials\n \
+  which may be an concrete instance of\n \
+  -AutoRefreshingClient\n \
+  -_FlowClient
 
 '-------------------
 'AuthenticatedClient
