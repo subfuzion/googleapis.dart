@@ -373,7 +373,7 @@
             }
         }
     },
-    "revision": "20210613",
+    "revision": "20210618",
     "rootUrl": "https://recaptchaenterprise.googleapis.com/",
     "schemas": {
         "GoogleCloudRecaptchaenterpriseV1AndroidKeySettings": {

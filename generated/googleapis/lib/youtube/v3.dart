@@ -4238,7 +4238,8 @@ class SuperChatEventsResource {
   /// Request parameters:
   ///
   /// [part] - The *part* parameter specifies the superChatEvent resource parts
-  /// that the API response will include. Supported values are id and snippet.
+  /// that the API response will include. This parameter is currently not
+  /// supported.
   ///
   /// [hl] - Return rendered funding amounts in specified language.
   ///

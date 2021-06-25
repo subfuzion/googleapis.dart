@@ -8049,7 +8049,7 @@ class SdkVersion {
   /// - "STALE" : A newer version of the SDK family exists, and an update is
   /// recommended.
   /// - "DEPRECATED" : This version of the SDK is deprecated and will eventually
-  /// be no longer supported.
+  /// be unsupported.
   /// - "UNSUPPORTED" : Support for this SDK version has ended and it should no
   /// longer be used.
   core.String? sdkSupportStatus;

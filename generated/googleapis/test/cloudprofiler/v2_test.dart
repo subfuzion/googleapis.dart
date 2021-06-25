@@ -27,14 +27,14 @@ import 'package:test/test.dart' as unittest;
 
 import '../test_shared.dart';
 
-core.List<core.String> buildUnnamed2943() {
+core.List<core.String> buildUnnamed2942() {
   var o = <core.String>[];
   o.add('foo');
   o.add('foo');
   return o;
 }
 
-void checkUnnamed2943(core.List<core.String> o) {
+void checkUnnamed2942(core.List<core.String> o) {
   unittest.expect(o, unittest.hasLength(2));
   unittest.expect(
     o[0],
@@ -52,7 +52,7 @@ api.CreateProfileRequest buildCreateProfileRequest() {
   buildCounterCreateProfileRequest++;
   if (buildCounterCreateProfileRequest < 3) {
     o.deployment = buildDeployment();
-    o.profileType = buildUnnamed2943();
+    o.profileType = buildUnnamed2942();
   }
   buildCounterCreateProfileRequest--;
   return o;
@@ -62,9 +62,57 @@ void checkCreateProfileRequest(api.CreateProfileRequest o) {
   buildCounterCreateProfileRequest++;
   if (buildCounterCreateProfileRequest < 3) {
     checkDeployment(o.deployment! as api.Deployment);
-    checkUnnamed2943(o.profileType!);
+    checkUnnamed2942(o.profileType!);
   }
   buildCounterCreateProfileRequest--;
+}
+
+core.Map<core.String, core.String> buildUnnamed2943() {
+  var o = <core.String, core.String>{};
+  o['x'] = 'foo';
+  o['y'] = 'foo';
+  return o;
+}
+
+void checkUnnamed2943(core.Map<core.String, core.String> o) {
+  unittest.expect(o, unittest.hasLength(2));
+  unittest.expect(
+    o['x']!,
+    unittest.equals('foo'),
+  );
+  unittest.expect(
+    o['y']!,
+    unittest.equals('foo'),
+  );
+}
+
+core.int buildCounterDeployment = 0;
+api.Deployment buildDeployment() {
+  var o = api.Deployment();
+  buildCounterDeployment++;
+  if (buildCounterDeployment < 3) {
+    o.labels = buildUnnamed2943();
+    o.projectId = 'foo';
+    o.target = 'foo';
+  }
+  buildCounterDeployment--;
+  return o;
+}
+
+void checkDeployment(api.Deployment o) {
+  buildCounterDeployment++;
+  if (buildCounterDeployment < 3) {
+    checkUnnamed2943(o.labels!);
+    unittest.expect(
+      o.projectId!,
+      unittest.equals('foo'),
+    );
+    unittest.expect(
+      o.target!,
+      unittest.equals('foo'),
+    );
+  }
+  buildCounterDeployment--;
 }
 
 core.Map<core.String, core.String> buildUnnamed2944() {
@@ -86,54 +134,6 @@ void checkUnnamed2944(core.Map<core.String, core.String> o) {
   );
 }
 
-core.int buildCounterDeployment = 0;
-api.Deployment buildDeployment() {
-  var o = api.Deployment();
-  buildCounterDeployment++;
-  if (buildCounterDeployment < 3) {
-    o.labels = buildUnnamed2944();
-    o.projectId = 'foo';
-    o.target = 'foo';
-  }
-  buildCounterDeployment--;
-  return o;
-}
-
-void checkDeployment(api.Deployment o) {
-  buildCounterDeployment++;
-  if (buildCounterDeployment < 3) {
-    checkUnnamed2944(o.labels!);
-    unittest.expect(
-      o.projectId!,
-      unittest.equals('foo'),
-    );
-    unittest.expect(
-      o.target!,
-      unittest.equals('foo'),
-    );
-  }
-  buildCounterDeployment--;
-}
-
-core.Map<core.String, core.String> buildUnnamed2945() {
-  var o = <core.String, core.String>{};
-  o['x'] = 'foo';
-  o['y'] = 'foo';
-  return o;
-}
-
-void checkUnnamed2945(core.Map<core.String, core.String> o) {
-  unittest.expect(o, unittest.hasLength(2));
-  unittest.expect(
-    o['x']!,
-    unittest.equals('foo'),
-  );
-  unittest.expect(
-    o['y']!,
-    unittest.equals('foo'),
-  );
-}
-
 core.int buildCounterProfile = 0;
 api.Profile buildProfile() {
   var o = api.Profile();
@@ -141,7 +141,7 @@ api.Profile buildProfile() {
   if (buildCounterProfile < 3) {
     o.deployment = buildDeployment();
     o.duration = 'foo';
-    o.labels = buildUnnamed2945();
+    o.labels = buildUnnamed2944();
     o.name = 'foo';
     o.profileBytes = 'foo';
     o.profileType = 'foo';
@@ -158,7 +158,7 @@ void checkProfile(api.Profile o) {
       o.duration!,
       unittest.equals('foo'),
     );
-    checkUnnamed2945(o.labels!);
+    checkUnnamed2944(o.labels!);
     unittest.expect(
       o.name!,
       unittest.equals('foo'),

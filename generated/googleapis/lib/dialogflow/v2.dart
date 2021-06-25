@@ -201,6 +201,10 @@ class ProjectsResource {
 
   /// Creates/updates the specified agent.
   ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
+  ///
   /// [request] - The metadata request object.
   ///
   /// Request parameters:
@@ -264,8 +268,6 @@ class ProjectsAgentResource {
   ProjectsAgentResource(commons.ApiRequester client) : _requester = client;
 
   /// Exports the specified agent to a ZIP file.
-  ///
-  /// Operation
   ///
   /// [request] - The metadata request object.
   ///
@@ -401,9 +403,11 @@ class ProjectsAgentResource {
   /// agent will be trained automatically (unless disabled in agent settings).
   /// However, once the import is done, training may not be completed yet.
   /// Please call TrainAgent and wait for the operation it returns in order to
-  /// train explicitly. Operation An operation which tracks when importing is
-  /// complete. It only tracks when the draft agent is updated not when it is
-  /// done training.
+  /// train explicitly. An operation which tracks when importing is complete. It
+  /// only tracks when the draft agent is updated not when it is done training.
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -452,9 +456,11 @@ class ProjectsAgentResource {
   /// restored draft agent will be trained automatically (unless disabled in
   /// agent settings). However, once the restore is done, training may not be
   /// completed yet. Please call TrainAgent and wait for the operation it
-  /// returns in order to train explicitly. Operation An operation which tracks
-  /// when restoring is complete. It only tracks when the draft agent is updated
-  /// not when it is done training.
+  /// returns in order to train explicitly. An operation which tracks when
+  /// restoring is complete. It only tracks when the draft agent is updated not
+  /// when it is done training. Note: You should always train an agent prior to
+  /// sending it queries. See the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -550,7 +556,9 @@ class ProjectsAgentResource {
 
   /// Trains the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -653,7 +661,9 @@ class ProjectsAgentEntityTypesResource {
 
   /// Deletes entity types in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -698,7 +708,9 @@ class ProjectsAgentEntityTypesResource {
 
   /// Updates/Creates multiple entity types in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -742,6 +754,10 @@ class ProjectsAgentEntityTypesResource {
   }
 
   /// Creates an entity type in the specified agent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -791,6 +807,10 @@ class ProjectsAgentEntityTypesResource {
   }
 
   /// Deletes the specified entity type.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// Request parameters:
   ///
@@ -927,6 +947,10 @@ class ProjectsAgentEntityTypesResource {
 
   /// Updates the specified entity type.
   ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
+  ///
   /// [request] - The metadata request object.
   ///
   /// Request parameters:
@@ -988,7 +1012,9 @@ class ProjectsAgentEntityTypesEntitiesResource {
 
   /// Creates multiple new entities in the specified entity type.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -1033,7 +1059,9 @@ class ProjectsAgentEntityTypesEntitiesResource {
 
   /// Deletes entities in the specified entity type.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -1079,7 +1107,9 @@ class ProjectsAgentEntityTypesEntitiesResource {
   /// Updates or creates multiple entities in the specified entity type.
   ///
   /// This method does not affect entities in the entity type that aren't
-  /// explicitly specified in the request. Operation
+  /// explicitly specified in the request. Note: You should always train an
+  /// agent prior to sending it queries. See the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -2130,7 +2160,9 @@ class ProjectsAgentIntentsResource {
 
   /// Deletes intents in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -2175,7 +2207,9 @@ class ProjectsAgentIntentsResource {
 
   /// Updates/Creates multiple intents in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -2219,6 +2253,10 @@ class ProjectsAgentIntentsResource {
   }
 
   /// Creates an intent in the specified agent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -2277,6 +2315,10 @@ class ProjectsAgentIntentsResource {
   }
 
   /// Deletes the specified intent and its direct or indirect followup intents.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// Request parameters:
   ///
@@ -2435,6 +2477,10 @@ class ProjectsAgentIntentsResource {
   }
 
   /// Updates the specified intent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5388,6 +5434,10 @@ class ProjectsLocationsResource {
 
   /// Creates/updates the specified agent.
   ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
+  ///
   /// [request] - The metadata request object.
   ///
   /// Request parameters:
@@ -5450,8 +5500,6 @@ class ProjectsLocationsAgentResource {
       : _requester = client;
 
   /// Exports the specified agent to a ZIP file.
-  ///
-  /// Operation
   ///
   /// [request] - The metadata request object.
   ///
@@ -5588,9 +5636,11 @@ class ProjectsLocationsAgentResource {
   /// agent will be trained automatically (unless disabled in agent settings).
   /// However, once the import is done, training may not be completed yet.
   /// Please call TrainAgent and wait for the operation it returns in order to
-  /// train explicitly. Operation An operation which tracks when importing is
-  /// complete. It only tracks when the draft agent is updated not when it is
-  /// done training.
+  /// train explicitly. An operation which tracks when importing is complete. It
+  /// only tracks when the draft agent is updated not when it is done training.
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5639,9 +5689,11 @@ class ProjectsLocationsAgentResource {
   /// restored draft agent will be trained automatically (unless disabled in
   /// agent settings). However, once the restore is done, training may not be
   /// completed yet. Please call TrainAgent and wait for the operation it
-  /// returns in order to train explicitly. Operation An operation which tracks
-  /// when restoring is complete. It only tracks when the draft agent is updated
-  /// not when it is done training.
+  /// returns in order to train explicitly. An operation which tracks when
+  /// restoring is complete. It only tracks when the draft agent is updated not
+  /// when it is done training. Note: You should always train an agent prior to
+  /// sending it queries. See the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5737,7 +5789,9 @@ class ProjectsLocationsAgentResource {
 
   /// Trains the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5841,7 +5895,9 @@ class ProjectsLocationsAgentEntityTypesResource {
 
   /// Deletes entity types in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5886,7 +5942,9 @@ class ProjectsLocationsAgentEntityTypesResource {
 
   /// Updates/Creates multiple entity types in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5930,6 +5988,10 @@ class ProjectsLocationsAgentEntityTypesResource {
   }
 
   /// Creates an entity type in the specified agent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -5979,6 +6041,10 @@ class ProjectsLocationsAgentEntityTypesResource {
   }
 
   /// Deletes the specified entity type.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// Request parameters:
   ///
@@ -6117,6 +6183,10 @@ class ProjectsLocationsAgentEntityTypesResource {
 
   /// Updates the specified entity type.
   ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
+  ///
   /// [request] - The metadata request object.
   ///
   /// Request parameters:
@@ -6179,7 +6249,9 @@ class ProjectsLocationsAgentEntityTypesEntitiesResource {
 
   /// Creates multiple new entities in the specified entity type.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -6225,7 +6297,9 @@ class ProjectsLocationsAgentEntityTypesEntitiesResource {
 
   /// Deletes entities in the specified entity type.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -6272,7 +6346,9 @@ class ProjectsLocationsAgentEntityTypesEntitiesResource {
   /// Updates or creates multiple entities in the specified entity type.
   ///
   /// This method does not affect entities in the entity type that aren't
-  /// explicitly specified in the request. Operation
+  /// explicitly specified in the request. Note: You should always train an
+  /// agent prior to sending it queries. See the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -7334,7 +7410,9 @@ class ProjectsLocationsAgentIntentsResource {
 
   /// Deletes intents in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -7379,7 +7457,9 @@ class ProjectsLocationsAgentIntentsResource {
 
   /// Updates/Creates multiple intents in the specified agent.
   ///
-  /// Operation
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -7423,6 +7503,10 @@ class ProjectsLocationsAgentIntentsResource {
   }
 
   /// Creates an intent in the specified agent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -7481,6 +7565,10 @@ class ProjectsLocationsAgentIntentsResource {
   }
 
   /// Deletes the specified intent and its direct or indirect followup intents.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// Request parameters:
   ///
@@ -7641,6 +7729,10 @@ class ProjectsLocationsAgentIntentsResource {
   }
 
   /// Updates the specified intent.
+  ///
+  /// Note: You should always train an agent prior to sending it queries. See
+  /// the
+  /// [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
   ///
   /// [request] - The metadata request object.
   ///
@@ -11665,10 +11757,10 @@ class GoogleCloudDialogflowCxV3Intent {
   /// Labels can contain lowercase letters, digits and the symbols '-' and '_'.
   /// International characters are allowed, including letters from unicase
   /// alphabets. Keys must start with a letter. Keys and values can be no longer
-  /// than 63 characters and no more than 128 bytes. Prefix "sys." is reserved
+  /// than 63 characters and no more than 128 bytes. Prefix "sys-" is reserved
   /// for Dialogflow defined labels. Currently allowed Dialogflow defined labels
-  /// include: * sys.head * sys.contextual The above labels do not require
-  /// value. "sys.head" means the intent is a head intent. "sys.contextual"
+  /// include: * sys-head * sys-contextual The above labels do not require
+  /// value. "sys-head" means the intent is a head intent. "sys.contextual"
   /// means the intent is a contextual intent.
   core.Map<core.String, core.String>? labels;
 
@@ -18932,7 +19024,7 @@ class GoogleCloudDialogflowV2Environment {
   /// Supported formats: - `projects//agent/versions/` -
   /// `projects//locations//agent/versions/`
   ///
-  /// Optional.
+  /// Required.
   core.String? agentVersion;
 
   /// The developer-provided description for this environment.
